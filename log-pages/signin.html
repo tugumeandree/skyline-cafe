@@ -11,12 +11,48 @@
     <div class="Register">
         <h2>SIGN IN </h2>
         <label for="email">Email</label><br>
-        <input type="text" placeholder="Enter Email" name="email" required><br>
+        <input id="email" type="text" placeholder="Enter Email" name="email" required><br>
         <label for="psw"><b>Password</b></label><br>
-        <input type="password" placeholder="Enter Password" name="psw" required><br><br>
-        <button type="submit">Sign In</button>
+        <input id="password" type="password" placeholder="Enter Password" name="psw" required><br><br>
+        <button onclick="getInfo()">Sign In</button>
         <hr>
         <p>Not signed up? <a href="signup.html">Sign Up Here</a></p> 
     </div>
+<script>
+
+// Loop through Array of Objects
+var objPeople = [
+	{ // Object @ 0 index
+		email: "suzan@gmail.com",
+		password: "123"
+	},
+	{ // Object @ 1 index
+		email: "john@gmail.com",
+		password: "123"
+	},
+	{ // Object @ 2 index
+		email: "andrew@gmail.com",
+		password: "123"
+	}
+
+]
+
+function getInfo() {
+	var email = document.getElementById('email').value
+	var password = document.getElementById('password').value
+
+	for(var i = 0; i < objPeople.length; i++) {
+		// check is user input matches username and password of a current index of the objPeople array
+		if(email == objPeople[i].email && password == objPeople[i].password) {
+             window.location.href = "/menu-pages/breakfast.html"
+			console.log(username + " is logged in!!!")
+			// stop the function if this is found to be true
+			return
+		}
+	}
+	console.log("incorrect username or password")
+}
+</script>
+
 </body>
 </html>
